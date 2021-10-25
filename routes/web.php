@@ -33,6 +33,11 @@ Route::get('/partenaires/ensias', function () {
     return view('partenaires.ensias');
 });
 
+
+Route::group(['middleware' => ['auth']], function () {
+    //Route::resource('profile', profileController::class);
+    Route::resource('updatePassword', profileController::class);
+});
 Route::get('/recherche', function () {
     return view('recherche');
 });
