@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\acces_partenaire\profileController;
+use Illuminate\Support\Facades\Auth;
+
 
 
 Route::get('/', '\App\Http\Controllers\indexController@index')->name('index.show');
@@ -41,10 +44,6 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 
-Route::group(['middleware' => ['auth']], function () {
-    //Route::resource('profile', profileController::class);
-    Route::resource('updatePassword', profileController::class);
-});
 Route::get('/recherche', function () {
     return view('recherche');
 });
