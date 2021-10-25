@@ -34,6 +34,13 @@ Route::get('/partenaires/ensias', function () {
 });
 
 
+
+Route::group(['middleware' => ['auth']], function () {
+    //Route::resource('profile', profileController::class);
+    Route::resource('updatePassword', profileController::class);
+});
+
+
 Route::group(['middleware' => ['auth']], function () {
     //Route::resource('profile', profileController::class);
     Route::resource('updatePassword', profileController::class);
